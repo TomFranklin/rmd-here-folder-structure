@@ -1,0 +1,22 @@
+---
+title: "Running RMarkdown scripts from a sub folder and outputting into another sub folder"
+author: "Tom Franklin"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(here)
+data <- read.csv(here::here("data", "mtcars.csv"))
+```
+
+## My great plot 
+
+```{r, echo = FALSE, warning = FALSE}
+ggplot(data = data, mapping = aes(x = wt, y = mpg)) + 
+  geom_point() + 
+  stat_smooth(method = 'lm')
+```
+
+
